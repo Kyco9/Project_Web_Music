@@ -1,20 +1,17 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Project_Website_Music_2.MasterPage.Admin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Project_Website_Music_2.Admin.Default" %>
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <title>Home</title>
     <link href="//fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
-        <link href="../style/AdminStyle/Home.css" rel="stylesheet" />
+    <link href="../style/AdminStyle/Home.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-
-          <div class="wrapper">
+        
+         <div class="wrapper">
             <input type="checkbox" id="btn" hidden>
             <label for="btn" class="menu-btn">
                 <i class="fas fa-bars"></i>
@@ -35,8 +32,6 @@
             
         </div>
 
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
-        </div>
     </form>
 </body>
 </html>

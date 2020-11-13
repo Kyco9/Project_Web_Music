@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Login</title>
     <link href="//fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
     <link href="style/login.css" rel="stylesheet" />
 </head>
@@ -48,9 +48,10 @@
                 </div>
                 
             </div>
+            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
         </div>
    
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            
    
         </form>
    

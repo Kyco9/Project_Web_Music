@@ -20,19 +20,18 @@ namespace Project_Website_Music_2
 
         protected void Login_Click(object sender, EventArgs e)
         {
+            string user = txb_username.Text;
+            string pass = txb_password.Text;
+
             bool Login(string userName, string passWord)
             {
                 return AccountDAO.Instance.Login(userName, passWord);
             }
-
-            string user = txb_username.Text;
-            string pass = txb_password.Text;
-
-         
+            
 
             if (Login(user, pass))
             {
-                Response.Redirect("Admin/Default.aspx");
+                Response.Redirect("Admin/Home.aspx");
             }
             else
             {
