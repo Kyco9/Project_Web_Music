@@ -42,9 +42,9 @@
     transition: all 0.3s ease;
 }
 
-    .wrapper .menu-btn i.fa-times {
-        opacity: 0;
-    }
+.wrapper .menu-btn i.fa-times {
+    opacity: 0;
+}
 
 #btn:checked ~ .menu-btn i.fa-times {
     opacity: 1;
@@ -164,3 +164,12 @@
     text-align: center;
 }
 
+.content .header {
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.content p {
+    font-size: 40px;
+    font-weight: 700;
+}
