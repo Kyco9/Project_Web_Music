@@ -1,6 +1,19 @@
-﻿.TextBox12{
-    border-radius: 5px;
-    border: 2px solid #4cff00;
-    width: 45px;
-    height: 20px;
+﻿*{
+    margin:0;
+    padding: 0;
+}
+
+.header{
+    width: 1500px;
+    height: 80px;
+    background-color: pink;
+}
+
+.container{
+    width: 1500px;
+    height: 1000px;
+}
+
+.pos-cen{
+    margin: 0 auto;
 }
