@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AddCategory.aspx" />
     <Content Include="Admin\AddMusic.aspx" />
     <Content Include="Admin\Home.aspx" />
     <Content Include="Admin\ManageUsers.aspx" />
@@ -79,6 +80,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddCategory.aspx.cs">
+      <DependentUpon>AddCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddCategory.aspx.designer.cs">
+      <DependentUpon>AddCategory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddMusic.aspx.cs">
       <DependentUpon>AddMusic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

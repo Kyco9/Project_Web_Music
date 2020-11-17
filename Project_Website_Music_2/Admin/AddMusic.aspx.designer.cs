@@ -49,13 +49,13 @@ namespace Project_Website_Music_2.Admin {
         protected global::System.Web.UI.WebControls.TextBox txb_artis;
         
         /// <summary>
-        /// Calendar_DatePublished control.
+        /// txb_date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar_DatePublished;
+        protected global::System.Web.UI.WebControls.TextBox txb_date;
         
         /// <summary>
         /// btn_AddMuic control.
@@ -65,6 +65,15 @@ namespace Project_Website_Music_2.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_AddMuic;
+        
+        /// <summary>
+        /// txb_delete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txb_delete;
         
         /// <summary>
         /// btn_Delete control.
@@ -92,5 +101,14 @@ namespace Project_Website_Music_2.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

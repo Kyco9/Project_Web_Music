@@ -20,7 +20,7 @@ namespace Project_Website_Music_2.DAO
 
         public bool InsertAlbum(string name, string artis, string category, string datePubsl)
         {
-            string query = string.Format("INSERT dbo.Table_2 ( song_name, artis, catetory, nxb )VALUES  ( N'{0}', N'{1}', N'{2}', N'{3}')", name, artis, category, datePubsl);
+            string query = string.Format("INSERT dbo.Table_2 ( song_name, artis, catetory, nxb )VALUES  ( N'{0}', N'{1}', N'{2}', '{3}')", name, artis, category, datePubsl);
             int result = DataProvider.Instance.ExecuteNonQuery(query);
 
             return result > 0;
@@ -34,14 +34,13 @@ namespace Project_Website_Music_2.DAO
         //    return result > 0;
         //}
 
-        //public bool DeleteFood(int idFood)
-        //{
-        //    BillInfoDAO.Instance.DeleteBillInfoByFoodID(idFood);
+        public bool DeleteAlbum(string nameFood)
+        {
 
-        //    string query = string.Format("Delete Food where id = {0}", idFood);
-        //    int result = DataProvider.Instance.ExecuteNonQuery(query);
+            string query = string.Format("Delete Table_2 where song_name = N'{0}'", nameFood);
+            int result = DataProvider.Instance.ExecuteNonQuery(query);
 
-        //    return result > 0;
-        //}
+            return result > 0;
+        }
     }
 }
