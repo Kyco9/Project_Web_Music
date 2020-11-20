@@ -41,7 +41,11 @@ namespace Project_Website_Music_2.Admin
         protected void btn_Delete_Click(object sender, EventArgs e)
         {
             string name = txb_delete.Text;
-            AlbumDAO.Instance.DeleteAlbum(name);
+            if (AlbumDAO.Instance.DeleteAlbum(name))
+                Label1.Text = "Delate Success";
+            else
+                Label1.Text = "Delete Fail!!!";
+            
 
             txb_delete.Text = "";
             GridView1.DataBind();

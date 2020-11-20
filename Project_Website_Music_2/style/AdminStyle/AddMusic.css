@@ -3,6 +3,14 @@
     padding: 0;
 }
 
+body{
+    font-size: 18px;
+}
+
+.header {
+    width: 1500px;
+    height: 120px;
+}
 
 .container{
     width: 1500px;
@@ -10,5 +18,26 @@
 }
 
 .pos-cen{
-    margin: 150px auto;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.lb-title{
+    color: red;
+}
+
+.txb {
+    width: 200px;
+    height: 40px;
+    border: 3px solid green;
+    border-radius: 5px;
+    margin: 30px;
+    font-size: 16px;
+}
+
+.btn {
+    width: 120px;
+    height: 50px;
+    background-color: royalblue;
+    border-radius: 5px;
 }
