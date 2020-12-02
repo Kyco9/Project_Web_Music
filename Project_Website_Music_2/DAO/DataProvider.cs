@@ -19,7 +19,7 @@ namespace Project_Website_Music_2.DAO
 
         private DataProvider() { }
 
-        private string connectionSTR = @"Data Source=QTRUNG\SQLEXPRESS;Initial Catalog=Test_ASP;Integrated Security=True";
+        private string connectionSTR = @"Data Source=.\SQLEXPRESS;Initial Catalog=DBSong;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {

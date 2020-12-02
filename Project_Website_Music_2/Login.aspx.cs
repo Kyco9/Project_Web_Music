@@ -23,17 +23,26 @@ namespace Project_Website_Music_2
             string user = txb_username.Text;
             string pass = txb_password.Text;
 
-            bool Login(string userName, string passWord)
+            int Login(string userName, string passWord)
             {
-                return AccountDAO.Instance.Login(userName, passWord);
+                if (AccountDAO.Instance.LoginWithPermission(userName, passWord) == 1)
+                    return 1;
+                else if (AccountDAO.Instance.LoginWithPermission(userName, passWord) == 2)
+                    return 2;
+                else
+                    return 0;
             }
             
 
-            if (Login(user, pass))
+            if (Login(user, pass) == 1)
             {
                 Response.Redirect("Admin/Home.aspx");
             }
-            else
+            else if (Login(user, pass) == 2)
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else 
             {
                 Label1.Text = "Your username and word is incorrect";
                 Label1.ForeColor = System.Drawing.Color.Red;

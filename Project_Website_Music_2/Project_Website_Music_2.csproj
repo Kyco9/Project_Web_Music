@@ -67,8 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\AddCategory.aspx" />
-    <Content Include="Admin\AddMusic.aspx" />
+    <Content Include="Admin\Category.aspx" />
+    <Content Include="Admin\Music.aspx" />
     <Content Include="Admin\Home.aspx" />
     <Content Include="Admin\ManageUsers.aspx" />
     <Content Include="Admin\WebForm1.aspx" />
@@ -80,19 +80,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\AddCategory.aspx.cs">
-      <DependentUpon>AddCategory.aspx</DependentUpon>
+    <Compile Include="Admin\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\AddCategory.aspx.designer.cs">
-      <DependentUpon>AddCategory.aspx</DependentUpon>
+    <Compile Include="Admin\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AddMusic.aspx.cs">
-      <DependentUpon>AddMusic.aspx</DependentUpon>
+    <Compile Include="Admin\Music.aspx.cs">
+      <DependentUpon>Music.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\AddMusic.aspx.designer.cs">
-      <DependentUpon>AddMusic.aspx</DependentUpon>
+    <Compile Include="Admin\Music.aspx.designer.cs">
+      <DependentUpon>Music.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -116,7 +116,7 @@
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAO\AccountDAO.cs" />
-    <Compile Include="DAO\AlbumDAO.cs" />
+    <Compile Include="DAO\SongDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -145,6 +145,7 @@
   <ItemGroup>
     <Content Include="MasterPage\Admin.Master" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

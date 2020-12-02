@@ -26,8 +26,8 @@
                     ADMIN</div>
                 <ul class="list-items">
                     <li><a href="Home.aspx"><i class="fas fa-home"></i>Home</a></li>
-                    <li><a href="AddMusic.aspx"><i class="fas fa-cog"></i>Add Music</a></li>
-                    <li><a href="AddCategory.aspx"><i class="fas fa-cog"></i>Add Category</a></li>
+                    <li><a href="Music.aspx"><i class="fas fa-cog"></i>Music</a></li>
+                    <li><a href="Category.aspx"><i class="fas fa-cog"></i>Category</a></li>
                     <li><a href="ManageUsers.aspx"><i class="fas fa-user"></i>Manage Users</a></li>
                     <li><a href="..\Default.aspx"><i class="fas"></i>Exit</a></li>
                     

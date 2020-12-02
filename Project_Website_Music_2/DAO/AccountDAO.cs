@@ -31,61 +31,77 @@ namespace Project_Website_Music_2.DAO
             return result.Rows.Count > 0;
         }
 
-        public bool UpdateAccount(string userName, string displayName, string pass, string newPass)
+        public int LoginWithPermission(string userName, string passWord)
         {
-            int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword", new object[] { userName, displayName, pass, newPass });
+            string query = "USP_Login @userName , @passWord";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { userName, passWord });
+            
 
-            return result > 0;
-        }
-
-        public DataTable GetListAccount()
-        {
-
-            return DataProvider.Instance.ExecuteQuery("Select UserName, DisplayName, Type from Account");
-        }
-
-        public Account GetAccountByUserName(string userName)
-        {
-            DataTable data = DataProvider.Instance.ExecuteQuery("Select * from account where userName = '" + userName + "'");
-
-            foreach (DataRow item in data.Rows)
+            if (result.Rows.Count > 0)
             {
-                return new Account(item);
+                if (result.Rows[0][6].ToString().Trim() == "Admin")
+                    return 1;
+                else if (result.Rows[0][6].ToString().Trim() == "User")
+                    return 2;
             }
-
-            return null;
+            return 0;
         }
 
-        public bool InsertAccount(string name, string displayName, int type)
-        {
-            string query = string.Format("INSERT dbo.Account ( UserName, DisplayName, Type )VALUES  ( N'{0}', N'{1}', {2})", name, displayName, type);
-            int result = DataProvider.Instance.ExecuteNonQuery(query);
+        //public bool UpdateAccount(string userName, string displayName, string pass, string newPass)
+        //{
+        //    int result = DataProvider.Instance.ExecuteNonQuery("exec USP_UpdateAccount @userName , @displayName , @password , @newPassword", new object[] { userName, displayName, pass, newPass });
 
-            return result > 0;
-        }
+        //    return result > 0;
+        //}
 
-        public bool UpdateAccount(string name, string displayName, int type)
-        {
-            string query = string.Format("UPDATE dbo.Account SET DisplayName = N'{1}', Type = {2} WHERE UserName = N'{0}'", name, displayName, type);
-            int result = DataProvider.Instance.ExecuteNonQuery(query);
+        //public DataTable GetListAccount()
+        //{
 
-            return result > 0;
-        }
+        //    return DataProvider.Instance.ExecuteQuery("Select UserName, DisplayName, Type from Account");
+        //}
 
-        public bool DeleteAccount(string name)
-        {
-            string query = string.Format("Delete Account where UserName = N'{0}'", name);
-            int result = DataProvider.Instance.ExecuteNonQuery(query);
+        //public Account GetAccountByUserName(string userName)
+        //{
+        //    DataTable data = DataProvider.Instance.ExecuteQuery("Select * from account where userName = '" + userName + "'");
 
-            return result > 0;
-        }
+        //    foreach (DataRow item in data.Rows)
+        //    {
+        //        return new Account(item);
+        //    }
 
-        public bool ResetPassword(string name)
-        {
-            string query = string.Format("update account set password = N'1' where UserName = N'{0}'", name);
-            int result = DataProvider.Instance.ExecuteNonQuery(query);
+        //    return null;
+        //}
 
-            return result > 0;
-        }
+        //public bool InsertAccount(string name, string displayName, int type)
+        //{
+        //    string query = string.Format("INSERT dbo.Account ( UserName, DisplayName, Type )VALUES  ( N'{0}', N'{1}', {2})", name, displayName, type);
+        //    int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+        //    return result > 0;
+        //}
+
+        //public bool UpdateAccount(string name, string displayName, int type)
+        //{
+        //    string query = string.Format("UPDATE dbo.Account SET DisplayName = N'{1}', Type = {2} WHERE UserName = N'{0}'", name, displayName, type);
+        //    int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+        //    return result > 0;
+        //}
+
+        //public bool DeleteAccount(string name)
+        //{
+        //    string query = string.Format("Delete Account where UserName = N'{0}'", name);
+        //    int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+        //    return result > 0;
+        //}
+
+        //public bool ResetPassword(string name)
+        //{
+        //    string query = string.Format("update account set password = N'1' where UserName = N'{0}'", name);
+        //    int result = DataProvider.Instance.ExecuteNonQuery(query);
+
+        //    return result > 0;
+        //}
     }
 }

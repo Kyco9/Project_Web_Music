@@ -1,0 +1,110 @@
+﻿* {
+    color: white;
+    text-decoration: none;
+    font-family: Poppins, Roboto, "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+}
+
+.content,.container {
+    text-align: center;
+    font-size: 25px;
+}
+
+
+.header{
+    margin: 30px 330px;
+    
+}
+
+.logo img {
+    width: 120px;
+    background-color: #ff0c0c73;
+    border-radius: 10px;
+}
+
+.container h1{
+    margin: 40px auto;
+    font-weight: 200;
+}
+
+.form-login{
+    font-size: 18px;
+}
+
+#label-username {
+    position: relative;
+    right: 87px;
+    font-size: 20px;
+}
+
+#txb_username,#txb_password{
+    width: 360px;
+    height: 35px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin: 10px auto;
+    color: black;
+    font-size: 16px;
+}
+
+#fg-pass a {
+    float: right;
+    position: relative;
+    right: 780px;
+    font-size: 14px;
+    transition: all 0.5s;
+}
+
+#fg-pass a:hover {
+    color: #ff778a;
+}
+
+#lb-pass {
+    position: relative;
+    left: 780px;
+    width: 27px;
+}
+
+.btn-log {
+    width: 360px;
+    height: 40px;
+    margin: 15px auto;
+    border: 3px solid white;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+
+#Button1 {
+    background-color: #ff926afa;
+}
+
+#Button1:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #ff0000;
+}
+
+#btn_fb {
+    background-color: #066CD2;
+}
+#btn_gg {
+    background-color: #ff4a4a;
+}
+
+.sign-up-link {
+    font-size: 15px;
+    color: gold;
+}
+
+.sign-up-link a:hover{
+    color: deeppink;
+}
