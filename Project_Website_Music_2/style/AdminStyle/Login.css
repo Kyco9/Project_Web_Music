@@ -1,0 +1,57 @@
+﻿* {
+    color: white;
+    text-decoration: none;
+    font-family: Poppins, Roboto, "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #385898;
+}
+
+.head{
+    text-align: center;
+    margin: 40px 20px;
+}
+
+#img_logo{
+    margin: 15px auto;
+}
+
+.form-log {
+    text-align: center;
+    margin: 10px 10px;
+}
+
+.lb {
+    margin: 20px 20px;
+    font-size: 25px;
+    color: white;
+}
+
+.txb {
+    margin: 20px 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    width: 270px;
+    height: 35px;
+    background-color: #aec8ff;
+}
+
+#btn_log {
+    width: 200px;
+    height: 40px;
+    background-color: #385898;
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 20px auto;
+}
+
+#Label1 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #00fff3;
+}

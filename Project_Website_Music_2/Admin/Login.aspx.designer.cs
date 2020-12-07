@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project_Website_Music_2 {
+namespace Project_Website_Music_2.Admin {
     
     
     public partial class Login {
@@ -22,31 +22,40 @@ namespace Project_Website_Music_2 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txb_username control.
+        /// lb_user control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txb_username;
+        protected global::System.Web.UI.WebControls.Label lb_user;
         
         /// <summary>
-        /// txb_password control.
+        /// txb_user control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txb_password;
+        protected global::System.Web.UI.WebControls.TextBox txb_user;
         
         /// <summary>
-        /// Button1 control.
+        /// lb_pass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label lb_pass;
+        
+        /// <summary>
+        /// txb_pass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txb_pass;
         
         /// <summary>
         /// Label1 control.
@@ -56,5 +65,14 @@ namespace Project_Website_Music_2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// btn_log control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_log;
     }
 }

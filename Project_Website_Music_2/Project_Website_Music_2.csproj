@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Category.aspx" />
+    <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\Music.aspx" />
     <Content Include="Admin\Home.aspx" />
     <Content Include="Admin\ManageUsers.aspx" />
@@ -76,8 +77,11 @@
     <Content Include="Login.aspx" />
     <Content Include="style\AdminStyle\AddMusic.css" />
     <Content Include="style\AdminStyle\AdminMaster.css" />
+    <Content Include="style\AdminStyle\Login.css" />
     <Content Include="style\login.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Category.aspx.cs">
@@ -86,6 +90,13 @@
     </Compile>
     <Compile Include="Admin\Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Music.aspx.cs">
       <DependentUpon>Music.aspx</DependentUpon>

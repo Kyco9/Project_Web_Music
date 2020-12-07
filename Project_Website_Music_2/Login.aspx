@@ -34,21 +34,21 @@
                         
                     </div>
                 
-                    <h4>------------OR------------</h4>
+                    <%--<h4>------------OR------------</h4>--%>
 
                     <%--<div><input type="button" id="btn-fb" class="btn-log" value="Sign in with Facebook" /></div>
 
                     <div><input type="button" id="btn-gg" class="btn-log" value="Sign in with Google" /></div>--%>
-                    <asp:Button ID="btn_fb" runat="server" Text="Sign in with Facebook" CssClass="btn-log" />
+                    <%--<asp:Button ID="btn_fb" runat="server" Text="Sign in with Facebook" CssClass="btn-log" />
                     <div></div>
-                    <asp:Button ID="btn_gg" runat="server" Text="Sign in with Google" CssClass="btn-log" />
+                    <asp:Button ID="btn_gg" runat="server" Text="Sign in with Google" CssClass="btn-log" />--%>
                     <div class="sign-up-link">
                         <p class="sign-up-link">Don't have an account? <a href="#">Sign up</a></p>
                     </div>
                 </div>
                 
             </div>
-            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+            <asp:Label ID="Label1" runat="server" Font-Size="Medium"></asp:Label>
         </div>
    
             
