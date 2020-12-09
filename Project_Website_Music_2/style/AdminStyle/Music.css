@@ -41,3 +41,7 @@ body{
     background-color: royalblue;
     border-radius: 5px;
 }
+
+.TableSong {
+    margin: 250px auto;
+}

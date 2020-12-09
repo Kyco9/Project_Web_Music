@@ -1,84 +1,144 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Admin.Master" AutoEventWireup="true" CodeBehind="Music.aspx.cs" Inherits="Project_Website_Music_2.Admin.AddMusic" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../style/AdminStyle/AddMusic.css" rel="stylesheet" />
+    <link href="../style/AdminStyle/Music.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <div class="header"></div>
     <div class="container pos-cen">
-        <p class="lb-title">Name of the song:
 
-        </p>
-        <asp:TextBox ID="txbSongName" CssClass="txb" runat="server"></asp:TextBox>
 
-        <p class="lb-title">Singer:</p>
-        <asp:DropDownList ID="dropdlSinger" CssClass="txb" runat="server" DataSourceID="Singer" DataTextField="Name" DataValueField="id"></asp:DropDownList>
-
-        <asp:SqlDataSource ID="Singer" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT [Name], [id] FROM [Singer]"></asp:SqlDataSource>
-
-        <p class="lb-title">Duration:
-
-        </p>
-        <asp:TextBox ID="txbDuration" CssClass="txb" runat="server" TextMode="Number"></asp:TextBox>
-
-        <p class="lb-title">Date Published:</p>
-        <asp:TextBox ID="txb_date" CssClass="txb" runat="server" TextMode="Date"></asp:TextBox>
-
-        <p class="lb-title">Author:</p>
-        <asp:DropDownList ID="dropdlAuthor" CssClass="txb" runat="server" DataSourceID="Author" DataTextField="Name" DataValueField="id"></asp:DropDownList>
-
-        <asp:SqlDataSource ID="Author" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT [Name], [id] FROM [Author]"></asp:SqlDataSource>
-
-        <p class="lb-title">Category:
+        <div class="menu-features">
+            <ul>
+                <li><asp:ImageButton ID="ImageButton6" runat="server" /></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="TableSong">
             
-        </p>
-        <asp:DropDownList ID="dropdlCategory" CssClass="txb" runat="server" DataSourceID="Category" DataTextField="Name" DataValueField="id">
-            </asp:DropDownList>
-
-        <asp:SqlDataSource ID="Category" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT * FROM [Category]"></asp:SqlDataSource>
-
-        <p></p>
-        <asp:Button ID="btn_AddMuic" CssClass="btn btn-Add" runat="server" Text="Add Music" OnClick="btn_AddMuic_Click" />
-
-        
-        
-        <br />
-        <br />
-        <br />
-
-
-        <p class="lb-title">Delete music name:</p>
-        <asp:TextBox ID="txb_delete" CssClass="txb" runat="server"></asp:TextBox>
-        
-
-        <br />
-        
-
-        <asp:Button ID="btn_Delete" CssClass="btn btn-Delete" runat="server" Text="Delete Music" OnClick="btn_Delete_Click" />
-        
-        
-        <br />
-        <br />
-        
-        
-        <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
-        
-        
-
-        <br />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+            <asp:GridView ID="gv_ShowSong" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" ShowFooter="True" Width="1500px" Height="450px" style="text-align: center" DataKeyNames="id" OnRowCancelingEdit="gv_ShowSong_RowCancelingEdit" OnRowEditing="gv_ShowSong_RowEditing" OnRowUpdating="gv_ShowSong_RowUpdating" CellSpacing="1" GridLines="None" OnRowDeleting="gv_ShowSong_RowDeleting">
             <Columns>
-                <asp:CommandField ShowSelectButton="True" />
-                <asp:BoundField DataField="Song Name" HeaderText="Song Name" SortExpression="Song Name" />
-                <asp:BoundField DataField="Author" HeaderText="Author" SortExpression="Author" />
-                <asp:BoundField DataField="Singer" HeaderText="Singer" SortExpression="Singer" />
-                <asp:BoundField DataField="Duration" HeaderText="Duration" SortExpression="Duration" />
-                <asp:BoundField DataField="Published" HeaderText="Published" SortExpression="Published" />
-                <asp:BoundField DataField="Category" HeaderText="Category" SortExpression="Category" />
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:CheckBox ID="ckb" runat="server" Width="25px" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="ID">
+                    <EditItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("id") %>'></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("id") %>' Width="25px"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Song Name" AccessibleHeaderText="songName">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txb_SongName" runat="server" Text='<%# Eval("Name") %>' Font-Size="14pt"></asp:TextBox>
+                    </EditItemTemplate>
+                    <FooterTemplate>
+                        <asp:TextBox ID="txb_SongNameFooter" runat="server" Font-Size="14pt"></asp:TextBox>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>' Font-Size="14pt"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Singer">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="ddl_Singer" runat="server" DataSourceID="idSinger" DataTextField="Name" DataValueField="id" Font-Size="14pt" AutoPostBack="True">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="idSinger" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT [id], [Name] FROM [Singer]"></asp:SqlDataSource>
+                    </EditItemTemplate>
+                    <FooterTemplate>
+                        <asp:DropDownList ID="ddl_SingerFooter" runat="server" DataSourceID="idSingerFooter" DataTextField="Name" DataValueField="id" Font-Size="14pt">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="idSingerFooter" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT [id], [Name] FROM [Singer]"></asp:SqlDataSource>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Eval("SingerName") %>' Font-Size="14pt"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Author">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="ddl_Author" runat="server" DataSourceID="idAuthor" DataTextField="Name" DataValueField="id" Font-Size="14pt" AutoPostBack="True">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="idAuthor" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT [Name], [id] FROM [Author]"></asp:SqlDataSource>
+                    </EditItemTemplate>
+                    <FooterTemplate>
+                        <asp:DropDownList ID="ddl_AuthorFooter" runat="server" DataSourceID="idAuthorFooter" DataTextField="Name" DataValueField="id" Font-Size="14pt">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="idAuthorFooter" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT [Name], [id] FROM [Author]"></asp:SqlDataSource>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Eval("AuthorName") %>' Font-Size="14pt"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Category">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="ddl_Category" runat="server" DataSourceID="idCategory" DataTextField="Name" DataValueField="id" Font-Size="14pt" AutoPostBack="True">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="idCategory" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT * FROM [Category]"></asp:SqlDataSource>
+                    </EditItemTemplate>
+                    <FooterTemplate>
+                        <asp:DropDownList ID="ddl_CategoryFooter" runat="server" DataSourceID="idCategoryFooter" DataTextField="Name" DataValueField="id" Font-Size="14pt">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="idCategoryFooter" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT * FROM [Category]"></asp:SqlDataSource>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Eval("CategoryName") %>' Font-Size="14pt"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Duration">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txb_Duration" runat="server" Text='<%# Eval("Duration") %>' TextMode="Number" Font-Size="14pt"></asp:TextBox>
+                    </EditItemTemplate>
+                    <FooterTemplate>
+                        <asp:TextBox ID="txb_DurationFooter" runat="server" TextMode="Number" Font-Size="14pt"></asp:TextBox>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label6" runat="server" Text='<%# Eval("Duration") %>' Font-Names="14"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Date Publish" AccessibleHeaderText="datePub">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txb_DatePub" runat="server" Text='<%# Eval("Published1") %>' TextMode="Date" Font-Names="14"></asp:TextBox>
+                    </EditItemTemplate>
+                    <FooterTemplate>
+                        <asp:TextBox ID="txb_DatePubFooter" runat="server" TextMode="Date" Font-Size="14pt"></asp:TextBox>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label7" runat="server" Text='<%# Eval("Published1") %>' Font-Names="14"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField>
+                    <EditItemTemplate>
+                        <asp:ImageButton ID="ImageButton3" runat="server" CommandName="Update" ImageUrl="..\img\Admin\save.png" Width="25px" />
+                        <asp:ImageButton ID="ImageButton4" runat="server" CommandName="Cancel" ImageUrl="..\img\Admin\cancel.png" Width="25px" />
+                    </EditItemTemplate>
+                    <FooterTemplate>
+                        <asp:ImageButton ID="ImageButton5" runat="server" CommandName="Add" ImageUrl="..\img\Admin\add.png" Width="25px" />
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <asp:ImageButton ID="ImageButton1" runat="server" CommandName="Edit" ImageUrl="..\img\Admin\edit.png" Width="25px" />
+                        <asp:ImageButton ID="ImageButton2" runat="server" CommandName="Delete" ImageUrl="..\img\Admin\delete1.png" Width="25px" />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
+            <EmptyDataTemplate>
+                No data<br />
+            </EmptyDataTemplate>
+            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+            <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
+            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#594B9C" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#33276A" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT s.Name AS 'Song Name', a.Name AS 'Author', si.Name AS 'Singer', s.Duration, s.Published, c.Name AS 'Category' FROM Song AS s INNER JOIN Author AS a ON s.idAuthor = a.id INNER JOIN Category AS c ON s.idCategory = c.id INNER JOIN Singer AS si ON s.idSinger = si.id"></asp:SqlDataSource>
 
+        </div>
+        
     </div>
     
 </asp:Content>

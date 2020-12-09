@@ -93,8 +93,11 @@ insert into Singer (Name, Age, Describe) values('Justin Bieber',27,'ksbjvlsgvkjs
 insert into Singer (Name, Age, Describe) values('Longji Iam',22,'asdh weg64jt')
 
 ----Insert Song-------
-insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('Babe',180,'10-08-2002',1294804435, 2, 1, 4, 1, 1)
-insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('Babe',180,'10-08-2002',1294804435, 1, 2, 1, 1, 1)
+insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('Babe',180,'10-08-2002',12935, 2, 1, 4, 1, 1)
+insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('B2be',180,'10-08-2002',124435, 1, 2, 1, 1, 1)
+insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('B6be',180,'10-08-2002',12945, 1, 2, 1, 1, 1)
+insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('Bsge',180,'10-08-2002',4435, 1, 3, 1, 1, 1)
+insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('sdbdrnd',180,'10-08-2002',4435, 1, 4, 2, 2, 1)
 
 
 ------
@@ -111,5 +114,12 @@ GO
 
 --Hiện bảng song
 
-SELECT s.Name as 'Song Name', a.Name as 'Author', si.Name as 'Singer', s.Duration, s.Published, c.Name as 'Category' FROM Song as s, Category as c, Author as a, Singer as si
+SELECT s.id as 'ID', s.Name as 'Song Name', si.Name as 'Singer', a.Name as 'Author', s.Duration, s.Published, c.Name as 'Category' FROM Song as s, Category as c, Author as a, Singer as si
 WHERE s.idAuthor = a.id and s.idCategory = c.id and s.idSinger = si.id
+
+select s.id, s.Name, si.Name as SingerName, a.Name as AuthorName, c.Name as CategoryName, Duration, convert(varchar(10), Published, 120) as Published1 from Song as s, Category as c, Author as a, Singer as si WHERE s.idAuthor = a.id and s.idCategory = c.id and s.idSinger = si.id
+
+update Song set Name = 'asdasd', idCategory = 3 where id=12
+
+
+DELETE FROM Song WHERE Name = 'Babe' AND idAuthor = '1' AND idSinger = '1' AND idCategory = '1' AND Duration = '1' AND Published = '2002-10-08'

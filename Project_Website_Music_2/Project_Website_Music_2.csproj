@@ -75,7 +75,7 @@
     <Content Include="Admin\WebForm1.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="style\AdminStyle\AddMusic.css" />
+    <Content Include="style\AdminStyle\Music.css" />
     <Content Include="style\AdminStyle\AdminMaster.css" />
     <Content Include="style\AdminStyle\Login.css" />
     <Content Include="style\login.css" />
@@ -165,7 +165,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="img\" />
+    <Folder Include="img\Admin\" />
     <Folder Include="js\" />
   </ItemGroup>
   <PropertyGroup>
@@ -183,7 +183,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53120</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53120/</IISUrl>
+          <IISUrl>http://localhost:53212/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
