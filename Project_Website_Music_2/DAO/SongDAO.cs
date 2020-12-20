@@ -34,13 +34,13 @@ namespace Project_Website_Music_2.DAO
         //    return result > 0;
         //}
 
-        public bool DeleteSong(string nameFood)
-        {
+        //public bool DeleteSong(string nameFood)
+        //{
 
-            string query = string.Format("Delete Table_2 where song_name = N'{0}'", nameFood);
-            int result = DataProvider.Instance.ExecuteNonQuery(query);
+        //    string query = string.Format("Delete Table_2 where song_name = N'{0}'", nameFood);
+        //    int result = DataProvider.Instance.ExecuteNonQuery(query);
 
-            return result > 0;
-        }
+        //    return result > 0;
+        //}
     }
 }

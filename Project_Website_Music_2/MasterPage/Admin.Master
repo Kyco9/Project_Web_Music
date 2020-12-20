@@ -34,8 +34,8 @@
                 </ul>
             </nav>
             </div>
-            <div class="menuUser">
-
+            <div class="menuUser" style="float:right; ">
+                Welcome!
             </div>
             <div class="content"></div>  
         </div>

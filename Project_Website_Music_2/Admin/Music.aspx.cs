@@ -66,7 +66,7 @@ namespace Project_Website_Music_2.Admin
 
         void LoadGridViewSong()
         {
-            string query = "select s.id, s.Name, si.Name as SingerName, a.Name as AuthorName, c.Name as CategoryName, Duration, convert(varchar(10), Published, 120) as Published1 from Song as s, Category as c, Author as a, Singer as si WHERE s.idAuthor = a.id and s.idCategory = c.id and s.idSinger = si.id";
+            string query = "select s.id, s.Name, si.Name as SingerName, a.Name as AuthorName, c.Name as CategoryName, Duration, convert(varchar(10), Published, 120) as Published1, ImgUrl from Song as s, Category as c, Author as a, Singer as si WHERE s.idAuthor = a.id and s.idCategory = c.id and s.idSinger = si.id";
             gv_ShowSong.DataSource = DataProvider.Instance.ExecuteQuery(query);
             gv_ShowSong.DataBind();
         }
@@ -138,6 +138,60 @@ namespace Project_Website_Music_2.Admin
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "Delete Fail", "alert('" + exx.Message + "');", true);
             }
+        }
+
+        protected void gv_ShowSong_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if(e.CommandName.Equals("AddNew"))
+            {
+                try
+                {
+                    using (SqlConnection ketnoi = new SqlConnection(chuoi))
+                    {//, Author=@idAuthor, Category=@idCategory, Duration=@Duration, Published=@Published 
+                        ketnoi.Open();
+                        string updateqr = "insert into Song (Name, Duration, Published, idAuthor, idSinger, idCategory) value ('@Name', '@Duration', '@Published', '@idAuthor', '@idSinger', '@idCategory')";
+                        SqlCommand cmd = new SqlCommand(updateqr, ketnoi);
+                        cmd.Parameters.AddWithValue("@Name", (gv_ShowSong.FooterRow.FindControl("txb_SongNameFooter") as TextBox).Text.Trim());
+                        cmd.Parameters.AddWithValue("@idSinger", Convert.ToInt32((gv_ShowSong.FooterRow.FindControl("ddl_SingerFooter") as DropDownList).Text));
+                        cmd.Parameters.AddWithValue("@idAuthor", Convert.ToInt32((gv_ShowSong.FooterRow.FindControl("ddl_AuthorFooter") as DropDownList).Text));
+                        cmd.Parameters.AddWithValue("@idCategory", Convert.ToInt32((gv_ShowSong.FooterRow.FindControl("ddl_CategoryFooter") as DropDownList).Text));
+                        cmd.Parameters.AddWithValue("@Duration", (gv_ShowSong.FooterRow.FindControl("txb_DurationFooter") as TextBox).Text.Trim());
+                        cmd.Parameters.AddWithValue("@Published", (gv_ShowSong.FooterRow.FindControl("txb_DatePubFooter") as TextBox).Text.Trim());
+
+                        cmd.ExecuteNonQuery();
+                        LoadGridViewSong();
+
+                        string display = "Edit Success!";
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + display + "');", true);
+
+                    }
+                }
+                catch (Exception exx)
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Edit Fail", "alert('" + exx.Message + "');", true);
+                }
+            }
+            
+        }
+
+        protected void ib_refesh_Click(object sender, ImageClickEventArgs e)
+        {
+            Page_Load(sender, e);
+        }
+
+        protected void lib_Add_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MusicAddNew.aspx");
+        }
+
+        protected void lib_Edit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MusicEdit.aspx");
+        }
+
+        protected void lib_Del_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

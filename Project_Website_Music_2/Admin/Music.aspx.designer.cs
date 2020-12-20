@@ -13,13 +13,40 @@ namespace Project_Website_Music_2.Admin {
     public partial class AddMusic {
         
         /// <summary>
-        /// ImageButton6 control.
+        /// lib_Refesh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton6;
+        protected global::System.Web.UI.WebControls.LinkButton lib_Refesh;
+        
+        /// <summary>
+        /// lib_Add control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lib_Add;
+        
+        /// <summary>
+        /// lib_Edit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lib_Edit;
+        
+        /// <summary>
+        /// lib_Del control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lib_Del;
         
         /// <summary>
         /// gv_ShowSong control.

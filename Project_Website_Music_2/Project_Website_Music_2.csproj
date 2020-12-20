@@ -72,6 +72,8 @@
     <Content Include="Admin\Music.aspx" />
     <Content Include="Admin\Home.aspx" />
     <Content Include="Admin\ManageUsers.aspx" />
+    <Content Include="Admin\MusicAddNew.aspx" />
+    <Content Include="Admin\MusicEdit.aspx" />
     <Content Include="Admin\WebForm1.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
@@ -118,6 +120,20 @@
     </Compile>
     <Compile Include="Admin\ManageUsers.aspx.designer.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MusicAddNew.aspx.cs">
+      <DependentUpon>MusicAddNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MusicAddNew.aspx.designer.cs">
+      <DependentUpon>MusicAddNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MusicEdit.aspx.cs">
+      <DependentUpon>MusicEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MusicEdit.aspx.designer.cs">
+      <DependentUpon>MusicEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -166,6 +182,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="img\Admin\" />
+    <Folder Include="img\Music\" />
     <Folder Include="js\" />
   </ItemGroup>
   <PropertyGroup>

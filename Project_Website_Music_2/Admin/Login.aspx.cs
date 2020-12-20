@@ -6,10 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Project_Website_Music_2.DAO;
 
+
+
 namespace Project_Website_Music_2.Admin
 {
+    
     public partial class Login : System.Web.UI.Page
     {
+        public string logged = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -33,6 +37,7 @@ namespace Project_Website_Music_2.Admin
 
             if (Login(user, pass) == 1)
             {
+                logged = "";
                 Response.Redirect("Home.aspx");
             }
             else if (Login(user, pass) == 2)
@@ -45,5 +50,6 @@ namespace Project_Website_Music_2.Admin
 
             }
         }
+        
     }
 }

@@ -14,7 +14,6 @@ body{
 
 .container{
     width: 1500px;
-    height: 1300px;
 }
 
 .pos-cen{
@@ -43,5 +42,15 @@ body{
 }
 
 .TableSong {
-    margin: 250px auto;
+    margin: 20px auto;
 }
+
+.text-fea{
+    text-decoration: none;
+    color: black;
+}
+
+.text-fea:hover {
+    color: red;
+}
+

@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Admin.Master" AutoEventWireup="true" CodeBehind="Music.aspx.cs" Inherits="Project_Website_Music_2.Admin.AddMusic" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../style/AdminStyle/Music.css" rel="stylesheet" />
 </asp:Content>
@@ -7,16 +9,44 @@
     <div class="header"></div>
     <div class="container pos-cen">
 
-
         <div class="menu-features">
-            <ul>
-                <li><asp:ImageButton ID="ImageButton6" runat="server" /></li>
-                <li></li>
+            <ul style="list-style: none; display: inline-flex; float: left; margin: 10px 20px; text-align: center;">
+                <li style="background: #72b1ff; display: block; padding: 15px 15px;" >
+                    <asp:LinkButton ID="lib_Refesh" runat="server" CssClass="text-fea">
+                        Refesh 
+                        <img class="btn-fea" src="..\img\Admin\refesh.png" alt="Refesh" width="20px" />
+                    </asp:LinkButton>
+                    
+                </li>
+                <img src="..\img\Admin\split.gif" alt="Alternate Text" />
+                <li style="background: #72b1ff; display: block; padding: 15px 15px;" >
+                    <asp:LinkButton ID="lib_Add" runat="server" CssClass="text-fea" OnClick="lib_Add_Click">
+                        Add new
+                        <img class="btn-fea" src="..\img\Admin\add.png" alt="Add new" width="20px"/>
+                    </asp:LinkButton>
+                    
+                </li>
+                <img src="..\img\Admin\split.gif" alt="Alternate Text" />
+                <li style="background: #72b1ff; display: block; padding: 15px 15px;" >
+                    <asp:LinkButton ID="lib_Edit" runat="server" CssClass="text-fea" OnClick="lib_Edit_Click">
+                        Edit
+                        <img class="btn-fea" src="..\img\Admin\edit.png" alt="Edit" width="20px"/>
+                    </asp:LinkButton>
+                    
+                </li>
+                <img src="..\img\Admin\split.gif" alt="Alternate Text" />
+                <li style=" background: #72b1ff; display: block; padding: 15px 15px;" >
+                    <asp:LinkButton ID="lib_Del" runat="server" CssClass="text-fea" OnClick="lib_Del_Click">
+                        Delete
+                        <img class="btn-fea" src="..\img\Admin\delete1.png" alt="Delete" width="20px"/>
+                    </asp:LinkButton>
+                    
+                </li>
             </ul>
         </div>
         <div class="TableSong">
             
-            <asp:GridView ID="gv_ShowSong" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" ShowFooter="True" Width="1500px" Height="450px" style="text-align: center" DataKeyNames="id" OnRowCancelingEdit="gv_ShowSong_RowCancelingEdit" OnRowEditing="gv_ShowSong_RowEditing" OnRowUpdating="gv_ShowSong_RowUpdating" CellSpacing="1" GridLines="None" OnRowDeleting="gv_ShowSong_RowDeleting">
+            <asp:GridView ID="gv_ShowSong" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" Width="1500px" Height="450px" style="text-align: center" DataKeyNames="id" OnRowCancelingEdit="gv_ShowSong_RowCancelingEdit" OnRowEditing="gv_ShowSong_RowEditing" OnRowUpdating="gv_ShowSong_RowUpdating" CellSpacing="1" GridLines="None" OnRowDeleting="gv_ShowSong_RowDeleting" OnRowCommand="gv_ShowSong_RowCommand">
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
@@ -31,13 +61,19 @@
                         <asp:Label ID="Label1" runat="server" Text='<%# Eval("id") %>' Width="25px"></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="Thumbnail">
+                    <EditItemTemplate>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT [ImgUrl] FROM [Song]"></asp:SqlDataSource>
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ImgUrl") %>' Width="100px" />
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("ImgUrl") %>' Width="100px" />
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Song Name" AccessibleHeaderText="songName">
                     <EditItemTemplate>
                         <asp:TextBox ID="txb_SongName" runat="server" Text='<%# Eval("Name") %>' Font-Size="14pt"></asp:TextBox>
                     </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="txb_SongNameFooter" runat="server" Font-Size="14pt"></asp:TextBox>
-                    </FooterTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label2" runat="server" Text='<%# Eval("Name") %>' Font-Size="14pt"></asp:Label>
                     </ItemTemplate>
@@ -49,8 +85,6 @@
                         <asp:SqlDataSource ID="idSinger" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT [id], [Name] FROM [Singer]"></asp:SqlDataSource>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:DropDownList ID="ddl_SingerFooter" runat="server" DataSourceID="idSingerFooter" DataTextField="Name" DataValueField="id" Font-Size="14pt">
-                        </asp:DropDownList>
                         <asp:SqlDataSource ID="idSingerFooter" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT [id], [Name] FROM [Singer]"></asp:SqlDataSource>
                     </FooterTemplate>
                     <ItemTemplate>
@@ -64,8 +98,6 @@
                         <asp:SqlDataSource ID="idAuthor" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT [Name], [id] FROM [Author]"></asp:SqlDataSource>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:DropDownList ID="ddl_AuthorFooter" runat="server" DataSourceID="idAuthorFooter" DataTextField="Name" DataValueField="id" Font-Size="14pt">
-                        </asp:DropDownList>
                         <asp:SqlDataSource ID="idAuthorFooter" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT [Name], [id] FROM [Author]"></asp:SqlDataSource>
                     </FooterTemplate>
                     <ItemTemplate>
@@ -79,8 +111,6 @@
                         <asp:SqlDataSource ID="idCategory" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT * FROM [Category]"></asp:SqlDataSource>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:DropDownList ID="ddl_CategoryFooter" runat="server" DataSourceID="idCategoryFooter" DataTextField="Name" DataValueField="id" Font-Size="14pt">
-                        </asp:DropDownList>
                         <asp:SqlDataSource ID="idCategoryFooter" runat="server" ConnectionString="<%$ ConnectionStrings:DBSongConnectionString %>" SelectCommand="SELECT * FROM [Category]"></asp:SqlDataSource>
                     </FooterTemplate>
                     <ItemTemplate>
@@ -91,9 +121,6 @@
                     <EditItemTemplate>
                         <asp:TextBox ID="txb_Duration" runat="server" Text='<%# Eval("Duration") %>' TextMode="Number" Font-Size="14pt"></asp:TextBox>
                     </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="txb_DurationFooter" runat="server" TextMode="Number" Font-Size="14pt"></asp:TextBox>
-                    </FooterTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label6" runat="server" Text='<%# Eval("Duration") %>' Font-Names="14"></asp:Label>
                     </ItemTemplate>
@@ -102,9 +129,6 @@
                     <EditItemTemplate>
                         <asp:TextBox ID="txb_DatePub" runat="server" Text='<%# Eval("Published1") %>' TextMode="Date" Font-Names="14"></asp:TextBox>
                     </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="txb_DatePubFooter" runat="server" TextMode="Date" Font-Size="14pt"></asp:TextBox>
-                    </FooterTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label7" runat="server" Text='<%# Eval("Published1") %>' Font-Names="14"></asp:Label>
                     </ItemTemplate>
@@ -114,9 +138,6 @@
                         <asp:ImageButton ID="ImageButton3" runat="server" CommandName="Update" ImageUrl="..\img\Admin\save.png" Width="25px" />
                         <asp:ImageButton ID="ImageButton4" runat="server" CommandName="Cancel" ImageUrl="..\img\Admin\cancel.png" Width="25px" />
                     </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:ImageButton ID="ImageButton5" runat="server" CommandName="Add" ImageUrl="..\img\Admin\add.png" Width="25px" />
-                    </FooterTemplate>
                     <ItemTemplate>
                         <asp:ImageButton ID="ImageButton1" runat="server" CommandName="Edit" ImageUrl="..\img\Admin\edit.png" Width="25px" />
                         <asp:ImageButton ID="ImageButton2" runat="server" CommandName="Delete" ImageUrl="..\img\Admin\delete1.png" Width="25px" />
@@ -138,7 +159,6 @@
         </asp:GridView>
 
         </div>
-        
     </div>
     
 </asp:Content>

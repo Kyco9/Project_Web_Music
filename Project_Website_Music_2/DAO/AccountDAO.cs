@@ -40,7 +40,9 @@ namespace Project_Website_Music_2.DAO
             if (result.Rows.Count > 0)
             {
                 if (result.Rows[0][6].ToString().Trim() == "Admin")
+                {
                     return 1;
+                }
                 else if (result.Rows[0][6].ToString().Trim() == "User")
                     return 2;
             }
@@ -57,7 +59,7 @@ namespace Project_Website_Music_2.DAO
         //public DataTable GetListAccount()
         //{
 
-        //    return DataProvider.Instance.ExecuteQuery("Select UserName, DisplayName, Type from Account");
+        //    return DataProvider.Instance.ExecuteQuery("Select UserName, DisplayName from Account");
         //}
 
         //public Account GetAccountByUserName(string userName)

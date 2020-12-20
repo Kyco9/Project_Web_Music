@@ -58,6 +58,7 @@ create table Song(
  idAuthor int,
  idCategory int,
  idPlaylist int,
+ ImgUrl nvarchar(1000),
  foreign key (idUser) references Account (id),
  foreign key (idSinger) references Singer (id),
  foreign key (idAuthor) references Author (id),
@@ -89,15 +90,16 @@ insert into Playlist (Name, Describe, Listened) values('Loved','my playlist most
 insert into Playlist (Name, Describe, Listened) values('Lo-fi','lofi music',13918232)
 
 ----Insert Singer-------
-insert into Singer (Name, Age, Describe) values('Justin Bieber',27,'ksbjvlsgvkjsvgrsbhs')
-insert into Singer (Name, Age, Describe) values('Longji Iam',22,'asdh weg64jt')
+insert into Singer (Name, Age, Describe) values('Justin Bieber',22,'Young Singer')
+insert into Singer (Name, Age, Describe) values('24KGoldn',22,'rapper')
+insert into Singer (Name, Age, Describe) values('Jawsh 685',22,'Singer')
 
 ----Insert Song-------
-insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('Babe',180,'10-08-2002',12935, 2, 1, 4, 1, 1)
-insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('B2be',180,'10-08-2002',124435, 1, 2, 1, 1, 1)
-insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('B6be',180,'10-08-2002',12945, 1, 2, 1, 1, 1)
-insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('Bsge',180,'10-08-2002',4435, 1, 3, 1, 1, 1)
-insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist) values('sdbdrnd',180,'10-08-2002',4435, 1, 4, 2, 2, 1)
+insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist, ImgUrl) values('Baby',180,'10-08-2002',12935, 2, 1, 2, 1, 1,'..\img\Music\1.jpg')
+insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist, ImgUrl) values('Savage Love',90,'10-08-2020',124435, 1, 3, 1, 1, 1, '..\img\Music\2.jpg')
+insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist, ImgUrl) values('Mood',80,'10-08-2002',12945, 1, 2, 1, 1, 1, '..\img\Music\3.jpg')
+insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist, ImgUrl) values('NOW Thats What I Call Christmas',80,'10-08-2015',4435, 1, 2, 1, 1, 1, '..\img\Music\1.jpg')
+insert into Song (Name, Duration, Published, Listened, idAuthor, idSinger, idCategory, idUser, idPlaylist, ImgUrl) values('Slime & B',80,'10-08-2020',4435, 1, 1, 2, 2, 1, '..\img\Music\5.jpg')
 
 
 ------
