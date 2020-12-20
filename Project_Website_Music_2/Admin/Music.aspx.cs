@@ -191,7 +191,59 @@ namespace Project_Website_Music_2.Admin
 
         protected void lib_Del_Click(object sender, EventArgs e)
         {
+            List<string> lstSongIdsToDelete = new List<string>();
+            foreach (GridViewRow gridViewRow in gv_ShowSong.Rows)
+            {
+                if (((CheckBox)gridViewRow.FindControl("cb_Delete")).Checked)
+                {
+                    string SongID = ((Label)gridViewRow.FindControl("Label1")).Text;
+                    lstSongIdsToDelete.Add(SongID);
+                }
+            }
+            if (lstSongIdsToDelete.Count > 0)
+            {
+                SongDAO.SongDataAccessLayer.DeleteSong(lstSongIdsToDelete);
+                LoadGridViewSong();
 
+                string display = lstSongIdsToDelete.Count.ToString() + " row(s) deleted";
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + display + "');", true);
+            }
+            else
+            {
+                string display = "No rows selected to delete";
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + display + "');", true);
+            }
+        }
+
+        protected void cb_DeleteHeader_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (GridViewRow gridViewRow in gv_ShowSong.Rows)
+            {
+                ((CheckBox)gridViewRow.FindControl("cb_Delete")).Checked = ((CheckBox)sender).Checked;
+            }
+        }
+
+        protected void cb_Delete_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox headerCheckBox =
+                (CheckBox)gv_ShowSong.HeaderRow.FindControl("cb_DeleteHeader");
+            if (headerCheckBox.Checked)
+            {
+                headerCheckBox.Checked = ((CheckBox)sender).Checked;
+            }
+            else
+            {
+                bool allCheckBoxesChecked = true;
+                foreach (GridViewRow gridViewRow in gv_ShowSong.Rows)
+                {
+                    if (!((CheckBox)gridViewRow.FindControl("cb_Delete")).Checked)
+                    {
+                        allCheckBoxesChecked = false;
+                        break;
+                    }
+                }
+                headerCheckBox.Checked = allCheckBoxesChecked;
+            }
         }
     }
 }

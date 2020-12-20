@@ -49,8 +49,11 @@
             <asp:GridView ID="gv_ShowSong" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" Width="1500px" Height="450px" style="text-align: center" DataKeyNames="id" OnRowCancelingEdit="gv_ShowSong_RowCancelingEdit" OnRowEditing="gv_ShowSong_RowEditing" OnRowUpdating="gv_ShowSong_RowUpdating" CellSpacing="1" GridLines="None" OnRowDeleting="gv_ShowSong_RowDeleting" OnRowCommand="gv_ShowSong_RowCommand">
             <Columns>
                 <asp:TemplateField>
+                    <HeaderTemplate>
+                        <asp:CheckBox ID="cb_DeleteHeader" runat="server" AutoPostBack="True" OnCheckedChanged="cb_DeleteHeader_CheckedChanged" Width="25px" />
+                    </HeaderTemplate>
                     <ItemTemplate>
-                        <asp:CheckBox ID="ckb" runat="server" Width="25px" />
+                        <asp:CheckBox ID="cb_Delete" runat="server" Width="25px" AutoPostBack="True" OnCheckedChanged="cb_Delete_CheckedChanged" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="ID">
